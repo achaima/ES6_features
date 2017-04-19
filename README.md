@@ -147,7 +147,7 @@ RESULT:
 
 By default when you have an object, any method on that  this keyword of a set method will be bound to the object.
 
-If you replaced the function keyword i this with an arrow.  Error cannot read property name of undefined will appear.
+If you replaced the function keyword ```this``` with an arrow.  Error cannot read property name of undefined will appear.
 
 Arrow functions have lexical scope. Lexical scope being as parent scope. So in the case of an arrow function the scope is not going to be our object, its going to be whatever  that this keyword was referred to before that. In the above case its going to be something like the window. 
 
@@ -208,8 +208,12 @@ console.log(“My favourite person is” + name + “because she’s funny”);
 
 RESULT:
 My favourite person is Asma because she’s funny
+```
+
 
 Instead,
+
+```JavaScript
 let name = ‘Asma’;
 
 console.log(`My favourite person is ${name} because she’s funny`);
@@ -424,9 +428,9 @@ _____________________________________________________________________
 
 > **REFERENCES**
 
-Lets Learn ES6 - Arrow functions by Ryan Christani (https://www.youtube.com/watch?v=oTRujqZYhrU)
+[Lets Learn ES6 - Ryan Christani] ([https://www.youtube.com/watch?v=oTRujqZYhrU)
 
-https://www.tutorialspoint.com/es6/es6_classes.html
+[The New Boston ES6 playlist](https://www.tutorialspoint.com/es6/es6_classes.html)
 
-New Boston ES6 tutorials
+[Tutorial point ES6](https://www.tutorialspoint.com)
 
