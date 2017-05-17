@@ -193,7 +193,6 @@ RESULT:
 “Asma likes Internet”
 ```
 
-
 ____________________________________
 
 > **TEMPLATE LITERALS**
@@ -422,6 +421,180 @@ RESULT:
 
 **Tip:** You can add .value  if you only wanted the value returned e.g. *apple*
 ```console.log(sample.next().value);```
+
+>**Deconstructor**
+
+Its a way for us to abstract data from different data structures.
+With destructuring we now have a way to access properties and pick the ones we want.
+
+Makes it possible to extract data from arrays and objects into distinct variables
+
+```js
+let person = {
+name: "Ryan",
+age: 30,
+location: "Toronto"
+};
+
+person.age; //30
+person["age"]; //30
+
+//This here is our destructuring expression
+let { age: personAge } = person;
+console.log(personAge);
+
+RESULT:
+30
+```
+
+1. ```age``` is the key we want to grab the value from 
+2. ```personAge``` is a new variable we are trying to create to store the value in
+3. ```person``` on the right hand side of the declaration is where we put the object that we're abstracting the values from 
+
+
+
+* Makes it possible to extract data from arrays and objects into distinct variables
+
+```js
+const scores = [10, 20, 30, 40, 50];
+var a, b, rest;
+[a, b] = scores;
+console.log(a); // 10
+console.log(b); // 20
+
+[a, b, ...rest] = scores;
+console.log(a); // 10
+console.log(b); // 20
+console.log(rest); // [30, 40, 50]
+
+({a, b} = {a: 10, b: 20});
+console.log(a); // 10
+console.log(b); // 20
+```
+
+It reverses the syntax. The variable is declared on the left hand side and the value is on the right
+
+```js
+var x = [1, 2, 3, 4, 5];
+var [y, z] = x;
+console.log(y); // 1
+console.log(z); // 2
+
+RESULT:
+1
+2
+ 
+let person = {
+name: "Ryan",
+age: 30,
+location: "Toronto"
+};
+
+let { age, location: currentLocation } = person;
+console.log(age, currentLocation);
+
+RESULT:
+30
+"Toronto"
+```
+
+
+```js
+let person = {
+name: "Ryan",
+age: 30,
+location: "Toronto"
+};
+
+let key = "age"
+
+let { [key] : keyAge } = person;
+console.log(keyAge);
+
+RESULT:
+30
+```
+
+
+
+**Arrays**
+
+Before...
+
+```js
+let numbers = [1,2,3,4];
+
+let first = numbers[0];
+let second = numbers[1];
+```
+
+Instead...
+
+```js
+let numbers = [1,2,3,4];
+
+let [first, second,, fourth] = numbers;
+console.log(first, second, fourth);
+
+RESULT:
+1
+2
+4
+
+```
+1. ```[first, second ,, fourth]```  the values we want to create
+2. ```numbers``` the array/data we want to extract from
+
+Alternatively,
+
+```js
+let numbers = [1,2,3,4];
+
+let [first, second, theRest] = numbers;
+console.log(first, second, theRest);
+
+RESULT:
+1
+2
+[3, 4]
+```
+
+
+>**For…Of Statement**
+
+The for..of loop lets you loop over an iterable:
+
+
+This function creates a loop iterating over objects (including Array, Map, Set, String, TypedArry)
+
+
+**Array**
+
+```js
+let iterable = [10, 20, 30];
+
+for (let value of iterable) {
+  value += 1;
+  console.log(value);
+}
+// 11
+// 21
+// 31
+```
+
+**String**
+
+```js
+let iterable = 'boo';
+
+for (let value of iterable) {
+  console.log(value);
+}
+// "b"
+// "o"
+// "o"
+```
+
 
 
 _____________________________________________________________________
